@@ -1,5 +1,5 @@
 const Query = require('./query');
-const {post} = require('./mutation/post');
+const post = require('./mutation/post');
 
 //const { auth } = require('./mutation/auth');
 //const {AuthPayload} = require(./authPayload');
