@@ -1,5 +1,5 @@
 
-endpoint: http://localhost:4466
+endpoint: http://localhost:4467
 datamodel: datamodel.graphql
 
 # GZ: This hook will download the database schema every time the DB is deployed

@@ -21,7 +21,7 @@ type Mutation {
         brandName: String!,
         category: String!,
         status: String!,
-        influencer: String!): Influencer
+        influencer: String!): Post
 #    createDraft(authorId: ID!, title: String!, content: String!): Post
 #    publish(id: ID!): Post
 #    deletePost(id: ID!): Post

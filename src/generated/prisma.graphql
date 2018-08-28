@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Tue Aug 28 2018 15:34:38 GMT-0300 (-03)
+# timestamp: Tue Aug 28 2018 19:30:07 GMT-0300 (-03)
 
 type AggregateBrandApprovalRequest {
   count: Int!
@@ -279,11 +279,6 @@ input CategoryCreateInput {
   categoryShopifyId: String
 }
 
-input CategoryCreateOneInput {
-  create: CategoryCreateInput
-  connect: CategoryWhereUniqueInput
-}
-
 """An edge in a connection."""
 type CategoryEdge {
   """The item at the end of the edge."""
@@ -351,28 +346,9 @@ input CategorySubscriptionWhereInput {
   node: CategoryWhereInput
 }
 
-input CategoryUpdateDataInput {
-  name: String
-  categoryShopifyId: String
-}
-
 input CategoryUpdateInput {
   name: String
   categoryShopifyId: String
-}
-
-input CategoryUpdateOneInput {
-  create: CategoryCreateInput
-  connect: CategoryWhereUniqueInput
-  disconnect: Boolean
-  delete: Boolean
-  update: CategoryUpdateDataInput
-  upsert: CategoryUpsertNestedInput
-}
-
-input CategoryUpsertNestedInput {
-  update: CategoryUpdateDataInput!
-  create: CategoryCreateInput!
 }
 
 input CategoryWhereInput {
@@ -1066,10 +1042,9 @@ type Post implements Node {
   productName: String
   brandShopifyId: String
   brandName: String
-  category(where: CategoryWhereInput): Category
-  content: String!
+  category: String
   status: String!
-  influencer(where: InfluencerWhereInput): Influencer!
+  influencer: String!
 }
 
 """A connection to a list of items."""
@@ -1089,10 +1064,9 @@ input PostCreateInput {
   productName: String
   brandShopifyId: String
   brandName: String
-  content: String!
+  category: String
   status: String!
-  category: CategoryCreateOneInput
-  influencer: InfluencerCreateOneInput!
+  influencer: String!
 }
 
 input PostCreateManyInput {
@@ -1124,10 +1098,12 @@ enum PostOrderByInput {
   brandShopifyId_DESC
   brandName_ASC
   brandName_DESC
-  content_ASC
-  content_DESC
+  category_ASC
+  category_DESC
   status_ASC
   status_DESC
+  influencer_ASC
+  influencer_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -1142,8 +1118,9 @@ type PostPreviousValues {
   productName: String
   brandShopifyId: String
   brandName: String
-  content: String!
+  category: String
   status: String!
+  influencer: String!
 }
 
 type PostSubscriptionPayload {
@@ -1192,10 +1169,9 @@ input PostUpdateDataInput {
   productName: String
   brandShopifyId: String
   brandName: String
-  content: String
+  category: String
   status: String
-  category: CategoryUpdateOneInput
-  influencer: InfluencerUpdateOneInput
+  influencer: String
 }
 
 input PostUpdateInput {
@@ -1205,10 +1181,9 @@ input PostUpdateInput {
   productName: String
   brandShopifyId: String
   brandName: String
-  content: String
+  category: String
   status: String
-  category: CategoryUpdateOneInput
-  influencer: InfluencerUpdateOneInput
+  influencer: String
 }
 
 input PostUpdateManyInput {
@@ -1520,46 +1495,46 @@ input PostWhereInput {
 
   """All values not ending with the given string."""
   brandName_not_ends_with: String
-  content: String
+  category: String
 
   """All values that are not equal to given value."""
-  content_not: String
+  category_not: String
 
   """All values that are contained in given list."""
-  content_in: [String!]
+  category_in: [String!]
 
   """All values that are not contained in given list."""
-  content_not_in: [String!]
+  category_not_in: [String!]
 
   """All values less than the given value."""
-  content_lt: String
+  category_lt: String
 
   """All values less than or equal the given value."""
-  content_lte: String
+  category_lte: String
 
   """All values greater than the given value."""
-  content_gt: String
+  category_gt: String
 
   """All values greater than or equal the given value."""
-  content_gte: String
+  category_gte: String
 
   """All values containing the given string."""
-  content_contains: String
+  category_contains: String
 
   """All values not containing the given string."""
-  content_not_contains: String
+  category_not_contains: String
 
   """All values starting with the given string."""
-  content_starts_with: String
+  category_starts_with: String
 
   """All values not starting with the given string."""
-  content_not_starts_with: String
+  category_not_starts_with: String
 
   """All values ending with the given string."""
-  content_ends_with: String
+  category_ends_with: String
 
   """All values not ending with the given string."""
-  content_not_ends_with: String
+  category_not_ends_with: String
   status: String
 
   """All values that are not equal to given value."""
@@ -1600,8 +1575,46 @@ input PostWhereInput {
 
   """All values not ending with the given string."""
   status_not_ends_with: String
-  category: CategoryWhereInput
-  influencer: InfluencerWhereInput
+  influencer: String
+
+  """All values that are not equal to given value."""
+  influencer_not: String
+
+  """All values that are contained in given list."""
+  influencer_in: [String!]
+
+  """All values that are not contained in given list."""
+  influencer_not_in: [String!]
+
+  """All values less than the given value."""
+  influencer_lt: String
+
+  """All values less than or equal the given value."""
+  influencer_lte: String
+
+  """All values greater than the given value."""
+  influencer_gt: String
+
+  """All values greater than or equal the given value."""
+  influencer_gte: String
+
+  """All values containing the given string."""
+  influencer_contains: String
+
+  """All values not containing the given string."""
+  influencer_not_contains: String
+
+  """All values starting with the given string."""
+  influencer_starts_with: String
+
+  """All values not starting with the given string."""
+  influencer_not_starts_with: String
+
+  """All values ending with the given string."""
+  influencer_ends_with: String
+
+  """All values not ending with the given string."""
+  influencer_not_ends_with: String
 }
 
 input PostWhereUniqueInput {

@@ -32,8 +32,7 @@ type Post {
   productName: String,
   brandShopifyId: String
   brandName: String
-  category: Category
-  content: String!
+  category: String
   status: String!
-  influencer: Influencer!
+  influencer: String!
 }

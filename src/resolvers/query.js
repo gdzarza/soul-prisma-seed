@@ -6,7 +6,7 @@ const Query = {
         return context.db.query.post({where: {id: id}}, info)
     },
     allPosts: (parent, args, context, info) => {
-        return context.db.query.post({}, info)
+        return context.db.query.posts({}, info)
     }
 };
 

@@ -12,6 +12,7 @@ const postMutations = {
             status,
             influencer
         } = args;
+        console.log('args', args)
         return context.db.mutation.createPost(
             {
                 data: {
