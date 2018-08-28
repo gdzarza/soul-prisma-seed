@@ -1,0 +1,1640 @@
+# source: http://localhost:4466
+# timestamp: Tue Aug 28 2018 15:34:38 GMT-0300 (-03)
+
+type AggregateBrandApprovalRequest {
+  count: Int!
+}
+
+type AggregateCategory {
+  count: Int!
+}
+
+type AggregateCustomer {
+  count: Int!
+}
+
+type AggregateInfluencer {
+  count: Int!
+}
+
+type AggregatePost {
+  count: Int!
+}
+
+type BatchPayload {
+  """The number of nodes that have been affected by the Batch operation."""
+  count: Long!
+}
+
+type BrandApprovalRequest {
+  influencer(where: InfluencerWhereInput): Influencer!
+  brandShopifyId: String
+  brandName: String
+  status: String
+}
+
+"""A connection to a list of items."""
+type BrandApprovalRequestConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [BrandApprovalRequestEdge]!
+  aggregate: AggregateBrandApprovalRequest!
+}
+
+input BrandApprovalRequestCreateInput {
+  brandShopifyId: String
+  brandName: String
+  status: String
+  influencer: InfluencerCreateOneInput!
+}
+
+"""An edge in a connection."""
+type BrandApprovalRequestEdge {
+  """The item at the end of the edge."""
+  node: BrandApprovalRequest!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum BrandApprovalRequestOrderByInput {
+  brandShopifyId_ASC
+  brandShopifyId_DESC
+  brandName_ASC
+  brandName_DESC
+  status_ASC
+  status_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type BrandApprovalRequestPreviousValues {
+  brandShopifyId: String
+  brandName: String
+  status: String
+}
+
+type BrandApprovalRequestSubscriptionPayload {
+  mutation: MutationType!
+  node: BrandApprovalRequest
+  updatedFields: [String!]
+  previousValues: BrandApprovalRequestPreviousValues
+}
+
+input BrandApprovalRequestSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [BrandApprovalRequestSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [BrandApprovalRequestSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [BrandApprovalRequestSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: BrandApprovalRequestWhereInput
+}
+
+input BrandApprovalRequestUpdateInput {
+  brandShopifyId: String
+  brandName: String
+  status: String
+  influencer: InfluencerUpdateOneInput
+}
+
+input BrandApprovalRequestWhereInput {
+  """Logical AND on all given filters."""
+  AND: [BrandApprovalRequestWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [BrandApprovalRequestWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [BrandApprovalRequestWhereInput!]
+  brandShopifyId: String
+
+  """All values that are not equal to given value."""
+  brandShopifyId_not: String
+
+  """All values that are contained in given list."""
+  brandShopifyId_in: [String!]
+
+  """All values that are not contained in given list."""
+  brandShopifyId_not_in: [String!]
+
+  """All values less than the given value."""
+  brandShopifyId_lt: String
+
+  """All values less than or equal the given value."""
+  brandShopifyId_lte: String
+
+  """All values greater than the given value."""
+  brandShopifyId_gt: String
+
+  """All values greater than or equal the given value."""
+  brandShopifyId_gte: String
+
+  """All values containing the given string."""
+  brandShopifyId_contains: String
+
+  """All values not containing the given string."""
+  brandShopifyId_not_contains: String
+
+  """All values starting with the given string."""
+  brandShopifyId_starts_with: String
+
+  """All values not starting with the given string."""
+  brandShopifyId_not_starts_with: String
+
+  """All values ending with the given string."""
+  brandShopifyId_ends_with: String
+
+  """All values not ending with the given string."""
+  brandShopifyId_not_ends_with: String
+  brandName: String
+
+  """All values that are not equal to given value."""
+  brandName_not: String
+
+  """All values that are contained in given list."""
+  brandName_in: [String!]
+
+  """All values that are not contained in given list."""
+  brandName_not_in: [String!]
+
+  """All values less than the given value."""
+  brandName_lt: String
+
+  """All values less than or equal the given value."""
+  brandName_lte: String
+
+  """All values greater than the given value."""
+  brandName_gt: String
+
+  """All values greater than or equal the given value."""
+  brandName_gte: String
+
+  """All values containing the given string."""
+  brandName_contains: String
+
+  """All values not containing the given string."""
+  brandName_not_contains: String
+
+  """All values starting with the given string."""
+  brandName_starts_with: String
+
+  """All values not starting with the given string."""
+  brandName_not_starts_with: String
+
+  """All values ending with the given string."""
+  brandName_ends_with: String
+
+  """All values not ending with the given string."""
+  brandName_not_ends_with: String
+  status: String
+
+  """All values that are not equal to given value."""
+  status_not: String
+
+  """All values that are contained in given list."""
+  status_in: [String!]
+
+  """All values that are not contained in given list."""
+  status_not_in: [String!]
+
+  """All values less than the given value."""
+  status_lt: String
+
+  """All values less than or equal the given value."""
+  status_lte: String
+
+  """All values greater than the given value."""
+  status_gt: String
+
+  """All values greater than or equal the given value."""
+  status_gte: String
+
+  """All values containing the given string."""
+  status_contains: String
+
+  """All values not containing the given string."""
+  status_not_contains: String
+
+  """All values starting with the given string."""
+  status_starts_with: String
+
+  """All values not starting with the given string."""
+  status_not_starts_with: String
+
+  """All values ending with the given string."""
+  status_ends_with: String
+
+  """All values not ending with the given string."""
+  status_not_ends_with: String
+  influencer: InfluencerWhereInput
+}
+
+type Category implements Node {
+  id: ID!
+  name: String!
+  categoryShopifyId: String
+}
+
+"""A connection to a list of items."""
+type CategoryConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [CategoryEdge]!
+  aggregate: AggregateCategory!
+}
+
+input CategoryCreateInput {
+  name: String!
+  categoryShopifyId: String
+}
+
+input CategoryCreateOneInput {
+  create: CategoryCreateInput
+  connect: CategoryWhereUniqueInput
+}
+
+"""An edge in a connection."""
+type CategoryEdge {
+  """The item at the end of the edge."""
+  node: Category!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum CategoryOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  categoryShopifyId_ASC
+  categoryShopifyId_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type CategoryPreviousValues {
+  id: ID!
+  name: String!
+  categoryShopifyId: String
+}
+
+type CategorySubscriptionPayload {
+  mutation: MutationType!
+  node: Category
+  updatedFields: [String!]
+  previousValues: CategoryPreviousValues
+}
+
+input CategorySubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [CategorySubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [CategorySubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [CategorySubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: CategoryWhereInput
+}
+
+input CategoryUpdateDataInput {
+  name: String
+  categoryShopifyId: String
+}
+
+input CategoryUpdateInput {
+  name: String
+  categoryShopifyId: String
+}
+
+input CategoryUpdateOneInput {
+  create: CategoryCreateInput
+  connect: CategoryWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: CategoryUpdateDataInput
+  upsert: CategoryUpsertNestedInput
+}
+
+input CategoryUpsertNestedInput {
+  update: CategoryUpdateDataInput!
+  create: CategoryCreateInput!
+}
+
+input CategoryWhereInput {
+  """Logical AND on all given filters."""
+  AND: [CategoryWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [CategoryWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [CategoryWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  categoryShopifyId: String
+
+  """All values that are not equal to given value."""
+  categoryShopifyId_not: String
+
+  """All values that are contained in given list."""
+  categoryShopifyId_in: [String!]
+
+  """All values that are not contained in given list."""
+  categoryShopifyId_not_in: [String!]
+
+  """All values less than the given value."""
+  categoryShopifyId_lt: String
+
+  """All values less than or equal the given value."""
+  categoryShopifyId_lte: String
+
+  """All values greater than the given value."""
+  categoryShopifyId_gt: String
+
+  """All values greater than or equal the given value."""
+  categoryShopifyId_gte: String
+
+  """All values containing the given string."""
+  categoryShopifyId_contains: String
+
+  """All values not containing the given string."""
+  categoryShopifyId_not_contains: String
+
+  """All values starting with the given string."""
+  categoryShopifyId_starts_with: String
+
+  """All values not starting with the given string."""
+  categoryShopifyId_not_starts_with: String
+
+  """All values ending with the given string."""
+  categoryShopifyId_ends_with: String
+
+  """All values not ending with the given string."""
+  categoryShopifyId_not_ends_with: String
+}
+
+input CategoryWhereUniqueInput {
+  id: ID
+}
+
+type Customer implements Node {
+  id: ID!
+  cognitoId: String
+  name: String!
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
+}
+
+"""A connection to a list of items."""
+type CustomerConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [CustomerEdge]!
+  aggregate: AggregateCustomer!
+}
+
+input CustomerCreateInput {
+  cognitoId: String
+  name: String!
+  posts: PostCreateManyInput
+}
+
+"""An edge in a connection."""
+type CustomerEdge {
+  """The item at the end of the edge."""
+  node: Customer!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum CustomerOrderByInput {
+  id_ASC
+  id_DESC
+  cognitoId_ASC
+  cognitoId_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type CustomerPreviousValues {
+  id: ID!
+  cognitoId: String
+  name: String!
+}
+
+type CustomerSubscriptionPayload {
+  mutation: MutationType!
+  node: Customer
+  updatedFields: [String!]
+  previousValues: CustomerPreviousValues
+}
+
+input CustomerSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [CustomerSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [CustomerSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [CustomerSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: CustomerWhereInput
+}
+
+input CustomerUpdateInput {
+  cognitoId: String
+  name: String
+  posts: PostUpdateManyInput
+}
+
+input CustomerWhereInput {
+  """Logical AND on all given filters."""
+  AND: [CustomerWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [CustomerWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [CustomerWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  cognitoId: String
+
+  """All values that are not equal to given value."""
+  cognitoId_not: String
+
+  """All values that are contained in given list."""
+  cognitoId_in: [String!]
+
+  """All values that are not contained in given list."""
+  cognitoId_not_in: [String!]
+
+  """All values less than the given value."""
+  cognitoId_lt: String
+
+  """All values less than or equal the given value."""
+  cognitoId_lte: String
+
+  """All values greater than the given value."""
+  cognitoId_gt: String
+
+  """All values greater than or equal the given value."""
+  cognitoId_gte: String
+
+  """All values containing the given string."""
+  cognitoId_contains: String
+
+  """All values not containing the given string."""
+  cognitoId_not_contains: String
+
+  """All values starting with the given string."""
+  cognitoId_starts_with: String
+
+  """All values not starting with the given string."""
+  cognitoId_not_starts_with: String
+
+  """All values ending with the given string."""
+  cognitoId_ends_with: String
+
+  """All values not ending with the given string."""
+  cognitoId_not_ends_with: String
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  posts_every: PostWhereInput
+  posts_some: PostWhereInput
+  posts_none: PostWhereInput
+}
+
+input CustomerWhereUniqueInput {
+  id: ID
+}
+
+type Influencer implements Node {
+  id: ID!
+  cognitoId: String
+  name: String!
+}
+
+"""A connection to a list of items."""
+type InfluencerConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [InfluencerEdge]!
+  aggregate: AggregateInfluencer!
+}
+
+input InfluencerCreateInput {
+  cognitoId: String
+  name: String!
+}
+
+input InfluencerCreateOneInput {
+  create: InfluencerCreateInput
+  connect: InfluencerWhereUniqueInput
+}
+
+"""An edge in a connection."""
+type InfluencerEdge {
+  """The item at the end of the edge."""
+  node: Influencer!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum InfluencerOrderByInput {
+  id_ASC
+  id_DESC
+  cognitoId_ASC
+  cognitoId_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type InfluencerPreviousValues {
+  id: ID!
+  cognitoId: String
+  name: String!
+}
+
+type InfluencerSubscriptionPayload {
+  mutation: MutationType!
+  node: Influencer
+  updatedFields: [String!]
+  previousValues: InfluencerPreviousValues
+}
+
+input InfluencerSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [InfluencerSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [InfluencerSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [InfluencerSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: InfluencerWhereInput
+}
+
+input InfluencerUpdateDataInput {
+  cognitoId: String
+  name: String
+}
+
+input InfluencerUpdateInput {
+  cognitoId: String
+  name: String
+}
+
+input InfluencerUpdateOneInput {
+  create: InfluencerCreateInput
+  connect: InfluencerWhereUniqueInput
+  delete: Boolean
+  update: InfluencerUpdateDataInput
+  upsert: InfluencerUpsertNestedInput
+}
+
+input InfluencerUpsertNestedInput {
+  update: InfluencerUpdateDataInput!
+  create: InfluencerCreateInput!
+}
+
+input InfluencerWhereInput {
+  """Logical AND on all given filters."""
+  AND: [InfluencerWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [InfluencerWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [InfluencerWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  cognitoId: String
+
+  """All values that are not equal to given value."""
+  cognitoId_not: String
+
+  """All values that are contained in given list."""
+  cognitoId_in: [String!]
+
+  """All values that are not contained in given list."""
+  cognitoId_not_in: [String!]
+
+  """All values less than the given value."""
+  cognitoId_lt: String
+
+  """All values less than or equal the given value."""
+  cognitoId_lte: String
+
+  """All values greater than the given value."""
+  cognitoId_gt: String
+
+  """All values greater than or equal the given value."""
+  cognitoId_gte: String
+
+  """All values containing the given string."""
+  cognitoId_contains: String
+
+  """All values not containing the given string."""
+  cognitoId_not_contains: String
+
+  """All values starting with the given string."""
+  cognitoId_starts_with: String
+
+  """All values not starting with the given string."""
+  cognitoId_not_starts_with: String
+
+  """All values ending with the given string."""
+  cognitoId_ends_with: String
+
+  """All values not ending with the given string."""
+  cognitoId_not_ends_with: String
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+}
+
+input InfluencerWhereUniqueInput {
+  id: ID
+}
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values.
+Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Mutation {
+  createCustomer(data: CustomerCreateInput!): Customer!
+  createBrandApprovalRequest(data: BrandApprovalRequestCreateInput!): BrandApprovalRequest!
+  createCategory(data: CategoryCreateInput!): Category!
+  createPost(data: PostCreateInput!): Post!
+  createInfluencer(data: InfluencerCreateInput!): Influencer!
+  updateCustomer(data: CustomerUpdateInput!, where: CustomerWhereUniqueInput!): Customer
+  updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
+  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
+  updateInfluencer(data: InfluencerUpdateInput!, where: InfluencerWhereUniqueInput!): Influencer
+  deleteCustomer(where: CustomerWhereUniqueInput!): Customer
+  deleteCategory(where: CategoryWhereUniqueInput!): Category
+  deletePost(where: PostWhereUniqueInput!): Post
+  deleteInfluencer(where: InfluencerWhereUniqueInput!): Influencer
+  upsertCustomer(where: CustomerWhereUniqueInput!, create: CustomerCreateInput!, update: CustomerUpdateInput!): Customer!
+  upsertCategory(where: CategoryWhereUniqueInput!, create: CategoryCreateInput!, update: CategoryUpdateInput!): Category!
+  upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
+  upsertInfluencer(where: InfluencerWhereUniqueInput!, create: InfluencerCreateInput!, update: InfluencerUpdateInput!): Influencer!
+  updateManyCustomers(data: CustomerUpdateInput!, where: CustomerWhereInput): BatchPayload!
+  updateManyBrandApprovalRequests(data: BrandApprovalRequestUpdateInput!, where: BrandApprovalRequestWhereInput): BatchPayload!
+  updateManyCategories(data: CategoryUpdateInput!, where: CategoryWhereInput): BatchPayload!
+  updateManyPosts(data: PostUpdateInput!, where: PostWhereInput): BatchPayload!
+  updateManyInfluencers(data: InfluencerUpdateInput!, where: InfluencerWhereInput): BatchPayload!
+  deleteManyCustomers(where: CustomerWhereInput): BatchPayload!
+  deleteManyBrandApprovalRequests(where: BrandApprovalRequestWhereInput): BatchPayload!
+  deleteManyCategories(where: CategoryWhereInput): BatchPayload!
+  deleteManyPosts(where: PostWhereInput): BatchPayload!
+  deleteManyInfluencers(where: InfluencerWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+type Post implements Node {
+  id: ID!
+  title: String!
+  description: String
+  productShopifyId: String!
+  productName: String
+  brandShopifyId: String
+  brandName: String
+  category(where: CategoryWhereInput): Category
+  content: String!
+  status: String!
+  influencer(where: InfluencerWhereInput): Influencer!
+}
+
+"""A connection to a list of items."""
+type PostConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [PostEdge]!
+  aggregate: AggregatePost!
+}
+
+input PostCreateInput {
+  title: String!
+  description: String
+  productShopifyId: String!
+  productName: String
+  brandShopifyId: String
+  brandName: String
+  content: String!
+  status: String!
+  category: CategoryCreateOneInput
+  influencer: InfluencerCreateOneInput!
+}
+
+input PostCreateManyInput {
+  create: [PostCreateInput!]
+  connect: [PostWhereUniqueInput!]
+}
+
+"""An edge in a connection."""
+type PostEdge {
+  """The item at the end of the edge."""
+  node: Post!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum PostOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  description_ASC
+  description_DESC
+  productShopifyId_ASC
+  productShopifyId_DESC
+  productName_ASC
+  productName_DESC
+  brandShopifyId_ASC
+  brandShopifyId_DESC
+  brandName_ASC
+  brandName_DESC
+  content_ASC
+  content_DESC
+  status_ASC
+  status_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type PostPreviousValues {
+  id: ID!
+  title: String!
+  description: String
+  productShopifyId: String!
+  productName: String
+  brandShopifyId: String
+  brandName: String
+  content: String!
+  status: String!
+}
+
+type PostSubscriptionPayload {
+  mutation: MutationType!
+  node: Post
+  updatedFields: [String!]
+  previousValues: PostPreviousValues
+}
+
+input PostSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PostSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PostSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PostSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: PostWhereInput
+}
+
+input PostUpdateDataInput {
+  title: String
+  description: String
+  productShopifyId: String
+  productName: String
+  brandShopifyId: String
+  brandName: String
+  content: String
+  status: String
+  category: CategoryUpdateOneInput
+  influencer: InfluencerUpdateOneInput
+}
+
+input PostUpdateInput {
+  title: String
+  description: String
+  productShopifyId: String
+  productName: String
+  brandShopifyId: String
+  brandName: String
+  content: String
+  status: String
+  category: CategoryUpdateOneInput
+  influencer: InfluencerUpdateOneInput
+}
+
+input PostUpdateManyInput {
+  create: [PostCreateInput!]
+  connect: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  delete: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueNestedInput!]
+  upsert: [PostUpsertWithWhereUniqueNestedInput!]
+}
+
+input PostUpdateWithWhereUniqueNestedInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateDataInput!
+}
+
+input PostUpsertWithWhereUniqueNestedInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateDataInput!
+  create: PostCreateInput!
+}
+
+input PostWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PostWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PostWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PostWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  title: String
+
+  """All values that are not equal to given value."""
+  title_not: String
+
+  """All values that are contained in given list."""
+  title_in: [String!]
+
+  """All values that are not contained in given list."""
+  title_not_in: [String!]
+
+  """All values less than the given value."""
+  title_lt: String
+
+  """All values less than or equal the given value."""
+  title_lte: String
+
+  """All values greater than the given value."""
+  title_gt: String
+
+  """All values greater than or equal the given value."""
+  title_gte: String
+
+  """All values containing the given string."""
+  title_contains: String
+
+  """All values not containing the given string."""
+  title_not_contains: String
+
+  """All values starting with the given string."""
+  title_starts_with: String
+
+  """All values not starting with the given string."""
+  title_not_starts_with: String
+
+  """All values ending with the given string."""
+  title_ends_with: String
+
+  """All values not ending with the given string."""
+  title_not_ends_with: String
+  description: String
+
+  """All values that are not equal to given value."""
+  description_not: String
+
+  """All values that are contained in given list."""
+  description_in: [String!]
+
+  """All values that are not contained in given list."""
+  description_not_in: [String!]
+
+  """All values less than the given value."""
+  description_lt: String
+
+  """All values less than or equal the given value."""
+  description_lte: String
+
+  """All values greater than the given value."""
+  description_gt: String
+
+  """All values greater than or equal the given value."""
+  description_gte: String
+
+  """All values containing the given string."""
+  description_contains: String
+
+  """All values not containing the given string."""
+  description_not_contains: String
+
+  """All values starting with the given string."""
+  description_starts_with: String
+
+  """All values not starting with the given string."""
+  description_not_starts_with: String
+
+  """All values ending with the given string."""
+  description_ends_with: String
+
+  """All values not ending with the given string."""
+  description_not_ends_with: String
+  productShopifyId: String
+
+  """All values that are not equal to given value."""
+  productShopifyId_not: String
+
+  """All values that are contained in given list."""
+  productShopifyId_in: [String!]
+
+  """All values that are not contained in given list."""
+  productShopifyId_not_in: [String!]
+
+  """All values less than the given value."""
+  productShopifyId_lt: String
+
+  """All values less than or equal the given value."""
+  productShopifyId_lte: String
+
+  """All values greater than the given value."""
+  productShopifyId_gt: String
+
+  """All values greater than or equal the given value."""
+  productShopifyId_gte: String
+
+  """All values containing the given string."""
+  productShopifyId_contains: String
+
+  """All values not containing the given string."""
+  productShopifyId_not_contains: String
+
+  """All values starting with the given string."""
+  productShopifyId_starts_with: String
+
+  """All values not starting with the given string."""
+  productShopifyId_not_starts_with: String
+
+  """All values ending with the given string."""
+  productShopifyId_ends_with: String
+
+  """All values not ending with the given string."""
+  productShopifyId_not_ends_with: String
+  productName: String
+
+  """All values that are not equal to given value."""
+  productName_not: String
+
+  """All values that are contained in given list."""
+  productName_in: [String!]
+
+  """All values that are not contained in given list."""
+  productName_not_in: [String!]
+
+  """All values less than the given value."""
+  productName_lt: String
+
+  """All values less than or equal the given value."""
+  productName_lte: String
+
+  """All values greater than the given value."""
+  productName_gt: String
+
+  """All values greater than or equal the given value."""
+  productName_gte: String
+
+  """All values containing the given string."""
+  productName_contains: String
+
+  """All values not containing the given string."""
+  productName_not_contains: String
+
+  """All values starting with the given string."""
+  productName_starts_with: String
+
+  """All values not starting with the given string."""
+  productName_not_starts_with: String
+
+  """All values ending with the given string."""
+  productName_ends_with: String
+
+  """All values not ending with the given string."""
+  productName_not_ends_with: String
+  brandShopifyId: String
+
+  """All values that are not equal to given value."""
+  brandShopifyId_not: String
+
+  """All values that are contained in given list."""
+  brandShopifyId_in: [String!]
+
+  """All values that are not contained in given list."""
+  brandShopifyId_not_in: [String!]
+
+  """All values less than the given value."""
+  brandShopifyId_lt: String
+
+  """All values less than or equal the given value."""
+  brandShopifyId_lte: String
+
+  """All values greater than the given value."""
+  brandShopifyId_gt: String
+
+  """All values greater than or equal the given value."""
+  brandShopifyId_gte: String
+
+  """All values containing the given string."""
+  brandShopifyId_contains: String
+
+  """All values not containing the given string."""
+  brandShopifyId_not_contains: String
+
+  """All values starting with the given string."""
+  brandShopifyId_starts_with: String
+
+  """All values not starting with the given string."""
+  brandShopifyId_not_starts_with: String
+
+  """All values ending with the given string."""
+  brandShopifyId_ends_with: String
+
+  """All values not ending with the given string."""
+  brandShopifyId_not_ends_with: String
+  brandName: String
+
+  """All values that are not equal to given value."""
+  brandName_not: String
+
+  """All values that are contained in given list."""
+  brandName_in: [String!]
+
+  """All values that are not contained in given list."""
+  brandName_not_in: [String!]
+
+  """All values less than the given value."""
+  brandName_lt: String
+
+  """All values less than or equal the given value."""
+  brandName_lte: String
+
+  """All values greater than the given value."""
+  brandName_gt: String
+
+  """All values greater than or equal the given value."""
+  brandName_gte: String
+
+  """All values containing the given string."""
+  brandName_contains: String
+
+  """All values not containing the given string."""
+  brandName_not_contains: String
+
+  """All values starting with the given string."""
+  brandName_starts_with: String
+
+  """All values not starting with the given string."""
+  brandName_not_starts_with: String
+
+  """All values ending with the given string."""
+  brandName_ends_with: String
+
+  """All values not ending with the given string."""
+  brandName_not_ends_with: String
+  content: String
+
+  """All values that are not equal to given value."""
+  content_not: String
+
+  """All values that are contained in given list."""
+  content_in: [String!]
+
+  """All values that are not contained in given list."""
+  content_not_in: [String!]
+
+  """All values less than the given value."""
+  content_lt: String
+
+  """All values less than or equal the given value."""
+  content_lte: String
+
+  """All values greater than the given value."""
+  content_gt: String
+
+  """All values greater than or equal the given value."""
+  content_gte: String
+
+  """All values containing the given string."""
+  content_contains: String
+
+  """All values not containing the given string."""
+  content_not_contains: String
+
+  """All values starting with the given string."""
+  content_starts_with: String
+
+  """All values not starting with the given string."""
+  content_not_starts_with: String
+
+  """All values ending with the given string."""
+  content_ends_with: String
+
+  """All values not ending with the given string."""
+  content_not_ends_with: String
+  status: String
+
+  """All values that are not equal to given value."""
+  status_not: String
+
+  """All values that are contained in given list."""
+  status_in: [String!]
+
+  """All values that are not contained in given list."""
+  status_not_in: [String!]
+
+  """All values less than the given value."""
+  status_lt: String
+
+  """All values less than or equal the given value."""
+  status_lte: String
+
+  """All values greater than the given value."""
+  status_gt: String
+
+  """All values greater than or equal the given value."""
+  status_gte: String
+
+  """All values containing the given string."""
+  status_contains: String
+
+  """All values not containing the given string."""
+  status_not_contains: String
+
+  """All values starting with the given string."""
+  status_starts_with: String
+
+  """All values not starting with the given string."""
+  status_not_starts_with: String
+
+  """All values ending with the given string."""
+  status_ends_with: String
+
+  """All values not ending with the given string."""
+  status_not_ends_with: String
+  category: CategoryWhereInput
+  influencer: InfluencerWhereInput
+}
+
+input PostWhereUniqueInput {
+  id: ID
+}
+
+type Query {
+  customers(where: CustomerWhereInput, orderBy: CustomerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Customer]!
+  brandApprovalRequests(where: BrandApprovalRequestWhereInput, orderBy: BrandApprovalRequestOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [BrandApprovalRequest]!
+  categories(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Category]!
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
+  influencers(where: InfluencerWhereInput, orderBy: InfluencerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Influencer]!
+  customer(where: CustomerWhereUniqueInput!): Customer
+  category(where: CategoryWhereUniqueInput!): Category
+  post(where: PostWhereUniqueInput!): Post
+  influencer(where: InfluencerWhereUniqueInput!): Influencer
+  customersConnection(where: CustomerWhereInput, orderBy: CustomerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CustomerConnection!
+  brandApprovalRequestsConnection(where: BrandApprovalRequestWhereInput, orderBy: BrandApprovalRequestOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BrandApprovalRequestConnection!
+  categoriesConnection(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CategoryConnection!
+  postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
+  influencersConnection(where: InfluencerWhereInput, orderBy: InfluencerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): InfluencerConnection!
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+}
+
+type Subscription {
+  customer(where: CustomerSubscriptionWhereInput): CustomerSubscriptionPayload
+  brandApprovalRequest(where: BrandApprovalRequestSubscriptionWhereInput): BrandApprovalRequestSubscriptionPayload
+  category(where: CategorySubscriptionWhereInput): CategorySubscriptionPayload
+  post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
+  influencer(where: InfluencerSubscriptionWhereInput): InfluencerSubscriptionPayload
+}

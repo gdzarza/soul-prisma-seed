@@ -1,0 +1,30 @@
+
+# import Customer from './generated/prisma.graphql'
+# import Influencer from './generated/prisma.graphql'
+# import BrandApprovalRequest from './generated/prisma.graphql'
+# import Category from './generated/prisma.graphql'
+# import Post from './generated/prisma.graphql'
+
+type Query {
+    allPosts: [Post!]!
+    post(id: ID!): Post
+    #posts(searchString: String): [Post!]!
+}
+
+#
+type Mutation {
+    createPost(title: String!,
+        description: String!,
+        productShopifyId: String!,
+        productName: String!,
+        brandShopifyId: String!,
+        brandName: String!,
+        category: String!,
+        status: String!,
+        influencer: String!): Post
+#    createDraft(authorId: ID!, title: String!, content: String!): Post
+#    publish(id: ID!): Post
+#    deletePost(id: ID!): Post
+#
+#    signup(name: String!): User!
+}

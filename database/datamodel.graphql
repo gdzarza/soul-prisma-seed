@@ -1,0 +1,39 @@
+type Customer {
+  id: ID! @unique
+  cognitoId: String
+  name: String!
+  posts: [Post!]!
+}
+
+type Influencer {
+  id: ID! @unique
+  cognitoId: String
+  name: String!
+}
+
+type BrandApprovalRequest {
+  influencer: Influencer!
+  brandShopifyId: String
+  brandName: String
+  status: String
+}
+
+type Category {
+  id: ID! @unique
+  name: String!
+  categoryShopifyId: String
+}
+
+type Post {
+  id: ID! @unique
+  title: String!
+  description: String
+  productShopifyId: String!
+  productName: String,
+  brandShopifyId: String
+  brandName: String
+  category: Category
+  content: String!
+  status: String!
+  influencer: Influencer!
+}

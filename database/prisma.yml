@@ -1,0 +1,8 @@
+
+endpoint: http://localhost:4466
+datamodel: datamodel.graphql
+
+# GZ: This hook will download the database schema every time the DB is deployed
+hooks:
+  post-deploy:
+    - graphql get-schema -p database
