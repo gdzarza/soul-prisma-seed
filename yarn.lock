@@ -64,8 +64,8 @@
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
 
 "@types/node@*":
-  version "10.9.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.9.2.tgz#f0ab8dced5cd6c56b26765e1c0d9e4fdcc9f2a00"
+  version "10.9.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.9.3.tgz#85f288502503ade0b3bfc049fe1777b05d0327d5"
 
 "@types/range-parser@*":
   version "1.2.2"
@@ -196,8 +196,8 @@ aws-lambda@^0.1.2:
     dotenv "^0.4.0"
 
 aws-sdk@^*:
-  version "2.303.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.303.0.tgz#b81ff532c04923e8ea9b7559db86f681a49f8f29"
+  version "2.304.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.304.0.tgz#080bd9604ff5c18bc38d67904dbd484ebf3e11f7"
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -555,9 +555,9 @@ get-stream@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"
 
-graphql-binding@2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/graphql-binding/-/graphql-binding-2.2.2.tgz#314623a39e5a877f81ffee4f23062ecb2566897a"
+graphql-binding@2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/graphql-binding/-/graphql-binding-2.2.4.tgz#997df7d2e1d7278950e64ec21618092e414b635e"
   dependencies:
     graphql-import "^0.5.2"
     graphql-tools "3.1.0"
@@ -675,8 +675,8 @@ graphql-tools@^3.0.0, graphql-tools@^3.0.5:
     uuid "^3.1.0"
 
 graphql-yoga@^1.16.1:
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.16.1.tgz#9ebb3c8c17c113e80fe2d37da804a6610ce744d9"
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.16.2.tgz#083293a9cecab6283e883c5a482c5c920fa66585"
   dependencies:
     "@types/cors" "^2.8.4"
     "@types/express" "^4.11.1"
@@ -960,7 +960,7 @@ minimist@^1.2.0:
 
 mkdirp@^0.5.1:
   version "0.5.1"
-  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
+  resolved "http://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
 
@@ -982,7 +982,11 @@ negotiator@0.6.1:
 
 node-fetch@2.1.2:
   version "2.1.2"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
+  resolved "http://registry.npmjs.org/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
+
+node-fetch@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.2.0.tgz#4ee79bde909262f9775f731e3656d0db55ced5b5"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -1073,14 +1077,14 @@ path-to-regexp@0.1.7:
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
 
 prisma-binding@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.1.4.tgz#437f0e05f980787726531685580d71d33593eeb9"
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.1.5.tgz#b641ba0e818002c9cc7cf5c2ed6cf33bf81d42b2"
   dependencies:
     apollo-link "1.2.2"
     apollo-link-error "1.0.9"
     apollo-link-ws "1.0.8"
     cross-fetch "2.1.1"
-    graphql-binding "2.2.2"
+    graphql-binding "2.2.4"
     graphql-import "0.5.2"
     graphql-tools "3.1.0"
     http-link-dataloader "^0.1.2"
@@ -1236,6 +1240,10 @@ shebang-command@^1.2.0:
 shebang-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
+
+shopify-buy@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/shopify-buy/-/shopify-buy-1.7.0.tgz#ed7209ac9fb35da401cc69883f1a613d4ae02aa0"
 
 signal-exit@^3.0.0:
   version "3.0.2"

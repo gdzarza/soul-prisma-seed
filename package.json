@@ -1,9 +1,10 @@
 {
   "name": "projectname",
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
     "graphql-yoga": "^1.16.1",
-    "prisma-binding": "^2.1.4"
+    "node-fetch": "^2.2.0",
+    "prisma-binding": "^2.1.4",
+    "shopify-buy": "^1.7.0"
   }
 }
