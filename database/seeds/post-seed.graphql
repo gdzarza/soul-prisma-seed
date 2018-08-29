@@ -1,0 +1,15 @@
+mutation {
+    createPost(
+        title: "My favourite shoes!",
+        description: "Check out this amazing stuff!",
+        productShopifyId: "123",
+        productName: "Galaxy Shoes",
+        brandShopifyId: "123",
+        brandName: "Zeta Shoes",
+        category: "shoes",
+        status: "some status",
+        influencerId: "cjlf5zsiy000r0964fx4bbffv" #influencerId
+    ) {
+        id
+    }
+}

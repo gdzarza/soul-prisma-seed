@@ -1,0 +1,6 @@
+mutation {
+    createInfluencer(cognitoId: "1", name: "Charly the Cat") {
+        id
+        name
+    }
+}

@@ -6,14 +6,22 @@
 # import Post from './generated/prisma.graphql'
 
 type Query {
-    allPosts: [Post!]!
     post(id: ID!): Post
+    posts: [Post!]!
+    influencer(id: ID!): Influencer
+    influencers: [Influencer!]!
     #posts(searchString: String): [Post!]!
 }
 
 #
 type Mutation {
-    createPost(title: String!,
+    createInfluencer(
+        cognitoId: String!
+        name: String!
+    ): Influencer
+
+    createPost(
+        title: String!,
         description: String!,
         productShopifyId: String!,
         productName: String!,
@@ -21,7 +29,8 @@ type Mutation {
         brandName: String!,
         category: String!,
         status: String!,
-        influencer: String!): Post
+        influencerId: ID!
+    ): Post
 #    createDraft(authorId: ID!, title: String!, content: String!): Post
 #    publish(id: ID!): Post
 #    deletePost(id: ID!): Post

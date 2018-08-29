@@ -1,5 +1,6 @@
 const Query = require('./query');
 const post = require('./mutation/post');
+const influencer = require('./mutation/influencer');
 
 //const { auth } = require('./mutation/auth');
 //const {AuthPayload} = require(./authPayload');
@@ -7,8 +8,10 @@ const post = require('./mutation/post');
 const resolvers = {
     Query,
     Mutation: {
+        ...post,
+        ...influencer
+
         //...auth,
-        ...post
     }
     //,    AuthPayload
 };

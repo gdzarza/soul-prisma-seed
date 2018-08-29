@@ -6,3 +6,8 @@ datamodel: datamodel.graphql
 hooks:
   post-deploy:
     - graphql get-schema -p database
+
+# GZ: Seed data for testing
+#seed:
+#  import: seeds/post-seed.graphql
+#  import: seeds/influencer-seed.graphql

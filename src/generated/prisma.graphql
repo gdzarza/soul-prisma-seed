@@ -1,5 +1,5 @@
-# source: http://localhost:4466
-# timestamp: Tue Aug 28 2018 19:30:07 GMT-0300 (-03)
+# source: http://localhost:4467
+# timestamp: Wed Aug 29 2018 11:00:08 GMT-0300 (-03)
 
 type AggregateBrandApprovalRequest {
   count: Int!
@@ -826,6 +826,7 @@ input InfluencerUpdateInput {
 input InfluencerUpdateOneInput {
   create: InfluencerCreateInput
   connect: InfluencerWhereUniqueInput
+  disconnect: Boolean
   delete: Boolean
   update: InfluencerUpdateDataInput
   upsert: InfluencerUpsertNestedInput
@@ -1044,7 +1045,7 @@ type Post implements Node {
   brandName: String
   category: String
   status: String!
-  influencer: String!
+  influencer(where: InfluencerWhereInput): Influencer
 }
 
 """A connection to a list of items."""
@@ -1066,7 +1067,7 @@ input PostCreateInput {
   brandName: String
   category: String
   status: String!
-  influencer: String!
+  influencer: InfluencerCreateOneInput
 }
 
 input PostCreateManyInput {
@@ -1102,8 +1103,6 @@ enum PostOrderByInput {
   category_DESC
   status_ASC
   status_DESC
-  influencer_ASC
-  influencer_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -1120,7 +1119,6 @@ type PostPreviousValues {
   brandName: String
   category: String
   status: String!
-  influencer: String!
 }
 
 type PostSubscriptionPayload {
@@ -1171,7 +1169,7 @@ input PostUpdateDataInput {
   brandName: String
   category: String
   status: String
-  influencer: String
+  influencer: InfluencerUpdateOneInput
 }
 
 input PostUpdateInput {
@@ -1183,7 +1181,7 @@ input PostUpdateInput {
   brandName: String
   category: String
   status: String
-  influencer: String
+  influencer: InfluencerUpdateOneInput
 }
 
 input PostUpdateManyInput {
@@ -1575,46 +1573,7 @@ input PostWhereInput {
 
   """All values not ending with the given string."""
   status_not_ends_with: String
-  influencer: String
-
-  """All values that are not equal to given value."""
-  influencer_not: String
-
-  """All values that are contained in given list."""
-  influencer_in: [String!]
-
-  """All values that are not contained in given list."""
-  influencer_not_in: [String!]
-
-  """All values less than the given value."""
-  influencer_lt: String
-
-  """All values less than or equal the given value."""
-  influencer_lte: String
-
-  """All values greater than the given value."""
-  influencer_gt: String
-
-  """All values greater than or equal the given value."""
-  influencer_gte: String
-
-  """All values containing the given string."""
-  influencer_contains: String
-
-  """All values not containing the given string."""
-  influencer_not_contains: String
-
-  """All values starting with the given string."""
-  influencer_starts_with: String
-
-  """All values not starting with the given string."""
-  influencer_not_starts_with: String
-
-  """All values ending with the given string."""
-  influencer_ends_with: String
-
-  """All values not ending with the given string."""
-  influencer_not_ends_with: String
+  influencer: InfluencerWhereInput
 }
 
 input PostWhereUniqueInput {

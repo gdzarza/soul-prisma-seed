@@ -10,9 +10,8 @@ const postMutations = {
             brandName,
             category,
             status,
-            influencer
+            influencerId
         } = args;
-        console.log('args', args)
         return context.db.mutation.createPost(
             {
                 data: {
@@ -24,7 +23,11 @@ const postMutations = {
                     brandName,
                     category,
                     status,
-                    influencer
+                    influencer: {
+                        connect: {
+                            id: influencerId,
+                        }
+                    }
                 }
             },
             info
