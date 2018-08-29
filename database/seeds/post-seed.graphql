@@ -8,7 +8,7 @@ mutation {
         brandName: "Zeta Shoes",
         category: "shoes",
         status: "some status",
-        influencerId: "cjlf5zsiy000r0964fx4bbffv" #influencerId
+        influencerId: "influencerId_1"
     ) {
         id
     }

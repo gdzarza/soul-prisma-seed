@@ -1,5 +1,9 @@
 mutation {
-    createInfluencer(cognitoId: "1", name: "Charly the Cat") {
+    createInfluencer(
+        id: "influencerId_1"
+        cognitoId: "1",
+        name: "Charly the Cat"
+    ) {
         id
         name
     }
