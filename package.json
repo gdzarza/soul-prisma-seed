@@ -1,8 +1,21 @@
 {
   "name": "projectname",
   "scripts": {
+    "prestart": "yarn build",
+    "start": "node lib/index.js",
+    "build": "babel -d lib/ src/"
   },
   "dependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "~6.13.2",
+    "babel-plugin-add-shopify-header": "~1.0.5",
+    "babel-plugin-graphql-js-client-transform": "^1.1.0",
+    "babel-preset-shopify": "~13.0.0",
+    "babel-register": "~6.11.6",
+    "graphql-js-client": "^0.4.2",
+    "graphql-js-schema": "^0.5.0",
+    "graphql-js-schema-fetch": "^1.1.2",
+    "node-fetch": "^1.6.3",
     "graphql-yoga": "^1.16.1",
     "prisma-binding": "^2.1.4"
   }

@@ -12,7 +12,7 @@ const postMutations = {
             status,
             influencerId
         } = args;
-        return context.db.mutation.createPost(
+        return context.soulerData.mutation.createPost(
             {
                 data: {
                     title,

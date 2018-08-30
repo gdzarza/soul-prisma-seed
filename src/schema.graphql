@@ -31,9 +31,4 @@ type Mutation {
         status: String!,
         influencerId: ID!
     ): Post
-#    createDraft(authorId: ID!, title: String!, content: String!): Post
-#    publish(id: ID!): Post
-#    deletePost(id: ID!): Post
-#
-#    signup(name: String!): User!
 }

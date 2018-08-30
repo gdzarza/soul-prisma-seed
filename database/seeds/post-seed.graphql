@@ -2,13 +2,13 @@ mutation {
     createPost(
         title: "My favourite shoes!",
         description: "Check out this amazing stuff!",
-        productShopifyId: "123",
+        productShopifyId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzk4OTUyODE0NzU=",
         productName: "Galaxy Shoes",
         brandShopifyId: "123",
         brandName: "Zeta Shoes",
         category: "shoes",
         status: "some status",
-        influencerId: "influencerId_1"
+        influencerId: "cjlf5zsiy000r0964fx4bbffv"
     ) {
         id
     }
